@@ -10,11 +10,20 @@ A video of the demo for the project can be found here: https://www.youtube.com/w
 Files included in the repo are the f3d (CAD) files for the case, and the code uploaded to the teensy 4.0 onboard.
 
 ## Software
+### Synth Description
 I tried to comment the code at least a little for every functional block so hopefully that helps, but here is the audio design in GUI form:
 
 <img width="800" alt="Teensy Software GUI" src="https://user-images.githubusercontent.com/71471706/235530890-29660d80-82bf-4034-acda-173b3827bc99.png">
 
 There are two waveforms, "waveform" and "waveform_fm". Those are the main instruments. They are both modulated by "modulator_sin". "waveform" undergoes AM and "waveform_fm" undergoes FM.
+
+### Libraries Used
+* Teensy Audio
+* Adafruit Trellis
+* Adafruit seesaw
+* Adafruit neopixel
+* Adafruit GFX
+* Adafruit SSD1036 (screen)
 
 ## Components
 
