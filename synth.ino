@@ -65,7 +65,7 @@ AudioControlSGTL5000 sgtl5000_1;
 
 
 
-// Just one
+//Keypad
 Adafruit_TrellisSet trellis =  Adafruit_TrellisSet(&matrix0);
 
 
@@ -142,9 +142,6 @@ void setup() {
     
   }
 
-  
-
-
   // Set up starting sounds
   envelope.attack(9.2);
   envelope.hold(2.1);
@@ -163,9 +160,6 @@ void setup() {
   switchAmFm(); 
 
   displayWaveform();
-
-
-
 
 }
 
@@ -214,12 +208,12 @@ void loop() {
 //  Serial.print("     ");
 //  
 //  uint16_t pot11_val_raw = analogRead(A11);
-//  float pot11_val =  (float)pot11_val_raw; // 
+//  float pot11_val =  (float)pot11_val_raw; // unused
 //  Serial.print(pot11_val_raw);
 //  Serial.print("     ");
 //  
 //  uint16_t pot10_val_raw = analogRead(A10);
-//  float pot10_val =  (float)pot10_val_raw; // 
+//  float pot10_val =  (float)pot10_val_raw; // unused
 //  Serial.print(pot10_val_raw);
 //  Serial.print("     ");
 //
@@ -274,10 +268,10 @@ void loop() {
   //sets mod freq
   modulator_sin.frequency(map(pot3_val_raw, 0, 1023, 1, 35));
 
-  //volumn
+  //volume
   vol.gain(pot2_val / 1023.0);
 
-  //pitch mod todo
+  //pitch mod (TODO)
   // if (pot9_val_raw > 711) {
   //   float modifiedPitch = (((float)pot9_val_raw - 711.0) / 1023.0) * 0.16 * noteFreq + noteFreq;
   //   setFreq(modifiedPitch);
@@ -302,6 +296,8 @@ void loop() {
 
   AudioInterrupts();
 
+
+  // sets slider colors to reflect their position
   for (uint8_t i = 0; i < pixels1.numPixels(); i++) {
     pixels1.setPixelColor(i, Wheel(slide1_val / 4));
     pixels2.setPixelColor(i, Wheel(slide2_val / 4));
@@ -311,12 +307,14 @@ void loop() {
 
 }
 
+// Sets the frequency of all instruments
 void setFreq(float freq) {
   waveform_fm.frequency(freq);
   waveform.frequency(freq);
 }
 
-
+// takes the sample from the pot controlling the waveform and switches between them
+// 100 points of deadspace between the settings
 void setWaveform(float sample) {
   float numWaveforms = 5.0;
   float division = 1023.0 / numWaveforms;
@@ -346,6 +344,7 @@ void setWaveform(float sample) {
 
 }
 
+// Switches mixer to current setting of amfm global variable
 void switchAmFm() {
   AudioNoInterrupts();
   if (amfm) {
@@ -391,6 +390,8 @@ void startAnimation(void) {
   display.display();
 }
 
+
+// Displays current waveform on the OLED and starts a scroll
 void displayWaveform() {
   display.clearDisplay();
   if (current_waveform == WAVEFORM_SINE) {
