@@ -7,7 +7,7 @@ This is a simple teensy synth I made for the final project in my "Prototyping In
 
 A video of the demo for the project can be found here: https://www.youtube.com/watch?v=l1DhpedB-J8
 
-Files included in the repo are the f3d (CAD) files for the case, and the code uploaded to the teensy 4.0 onboard.
+Files included in the repo are the f3d (CAD) files for the case, and the code uploaded to the teensy 4.0.
 
 ## Software
 ### Synth Description
@@ -32,7 +32,7 @@ There are two waveforms, "waveform" and "waveform_fm". Those are the main instru
 | Teensy 4.0  | Generic |
 | Teensy Audio Shield  | Generic |
 | Class D Audio Amp  | https://www.adafruit.com/product/2130 |
-| 4W Speaker  | https://www.adafruit.com/product/4445 |
+| 3W Speaker  | https://www.adafruit.com/product/4445 |
 | 9x 100k Panel Mount Potentiometers | Generic ~7-7.5mm diameter shaft |
 | Adafruit Trellis Keypad  | https://www.adafruit.com/product/1616 and https://www.adafruit.com/product/1611 |
 | 2x Adafruit I2C Sliders  | https://www.adafruit.com/product/5295 |
@@ -55,7 +55,7 @@ There is not much to say about how to connect components but here are a few note
 * Insane noise on analog pins when audio i2c output is initialized. No clue why that happens
   * Solution:
     * Fix the issue
-    * Insane software smoothing
+    * Software smoothing
 
 ### Future Features
 * More than one voice
