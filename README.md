@@ -41,6 +41,9 @@ There are two waveforms, "waveform" and "waveform_fm". Those are the main instru
 | Monochrome OLED Display | https://www.adafruit.com/product/326 |
 | Large Panel Mount Switch (unused) | https://www.adafruit.com/product/3221 |
 | Small Panel Mount Switch (SD for amp) | Generic ~5.6mm diameter shaft |
+| M3 Threaded Inserts | (generic but these are the dimensions for mine) https://a.co/d/aK7ZUcl |
+| M3 Screws and Nuts | Generic |
+| M2.5 Screws and Nuts | Generic |
 
 There is not much to say about how to connect components but here are a few notes:
 * Amp input is GND and either L or R on the output of the audio shield (since audio is MONO anyways)
@@ -48,7 +51,10 @@ There is not much to say about how to connect components but here are a few note
 * All i2c devices can use the same i2c bus (pins 19 and 18 on the teensy)
 * Buying Stemma QT cables to connect the i2c devices will make your life easier
 * "int" pin on keypad is not used
-* connect SPST switch from SD-bar on amp to ground so you can turn off the speaker
+* Connect SPST switch from SD-bar on amp and ground so you can turn off the speaker
+* M3 threaded inserts go into the corners of the bottom shell; use M3 screws to fasten the top plate on the bottom shell
+* M3 screws and nuts are used to fasten the speaker.
+* M2.5 screws and nuts are used to fasten the screen from the top, and the sliders from the bottom.
 
 ## Future Work
 ### Problems to Fix
